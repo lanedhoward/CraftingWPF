@@ -37,6 +37,9 @@ namespace CraftingWPF
             WPFUtils.ShopInventoryBox = lboxShopInventory;
             WPFUtils.RecipesListBox = lboxRecipes;
 
+            buttonBuy.Visibility = Visibility.Hidden;
+            buttonSell.Visibility = Visibility.Hidden;
+            lboxShopInventory.Visibility = Visibility.Hidden;
 
             myGame = new Game();
             
@@ -54,6 +57,44 @@ namespace CraftingWPF
         private void buttonCraft_Click(object sender, RoutedEventArgs e)
         {
             myGame.buttonCraft_Click();
+        }
+
+        private void buttonShop_Click(object sender, RoutedEventArgs e)
+        {
+            // toggle visibility
+            if(myGame.ShopOpen)
+            {
+                buttonBuy.Visibility = Visibility.Hidden;
+                buttonSell.Visibility = Visibility.Hidden;
+                lboxShopInventory.Visibility = Visibility.Hidden;
+                buttonShop.Content = "Talk to Shopkeep";
+            }
+            else
+            {
+                buttonBuy.Visibility = Visibility.Visible;
+                buttonSell.Visibility = Visibility.Visible;
+                lboxShopInventory.Visibility = Visibility.Visible;
+                buttonShop.Content = "Say goodbye to Shopkeep";
+            }
+
+            myGame.buttonShop_Click();
+
+
+        }
+
+        private void buttonBuy_Click(object sender, RoutedEventArgs e)
+        {
+            myGame.buttonBuy_Click();
+        }
+
+        private void buttonSell_Click(object sender, RoutedEventArgs e)
+        {
+            myGame.buttonSell_Click();
+        }
+
+        private void lboxRecipes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            myGame.lboxRecipes_SelectionChanged();
         }
     }
 }

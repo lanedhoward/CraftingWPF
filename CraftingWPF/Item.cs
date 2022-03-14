@@ -40,11 +40,19 @@ namespace CraftingSystemDemo
             Quantity = _Quantity;
             Name = _Name;
             Description = _Description;
+            Price = _Price;
+        }
+        public static Item ItemClone(Item duplicateFrom)
+        {
+            //Item cloning constructor
+            Item resultItem = new Item(duplicateFrom.Quantity, duplicateFrom.Name, duplicateFrom.Price, duplicateFrom.Description);
+
+            return resultItem;
         }
 
         public override string ToString()
         {
-            return Name + "  [" + (Price*Quantity).ToString("C") + "]";
+            return Quantity + " " + Name + "  [" + (Price*Quantity).ToString("C") + "]";
         }
 
     }

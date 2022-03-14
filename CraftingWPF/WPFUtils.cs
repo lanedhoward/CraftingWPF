@@ -52,5 +52,7 @@ namespace CraftingWPF
             lb.ItemsSource = list;
         }
 
+        //write a function like choose() from gamemaker, maybe it takes an array or a list of objects, generates a random index, and returns one of them back, to then be casted to the real type
+
     }
 }

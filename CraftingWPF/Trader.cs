@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
-using static CraftingSystemDemo.ConsoleUtils;
+using CraftingWPF;
+using static CraftingWPF.WPFUtils;
 
 namespace CraftingSystemDemo
 {
@@ -18,32 +19,108 @@ namespace CraftingSystemDemo
 
             //initialize inventory
             RedDye redDye = new RedDye(5) { Price = 1 };
-            BlueDye blueDye = new BlueDye(5) { Price = 1 } ;
+            BlueDye blueDye = new BlueDye(5) { Price = 1 };
 
-            
+
             Inventory.Add(redDye);
             Inventory.Add(blueDye);
+
+            UpdateInventoryDisplay();
         }
 
         public void StartDialogue(Player player)
         {
             Say("Well hey there, stranger! Can I interest you in some wares?");
-            Say("Here's what I've got.");
-            Print();
-            
-            Print(ShowAllItemsInList(Inventory,true));
+            Print($"[You have {player.Money.ToString("C")}]");
+            UpdateInventoryDisplay();
 
-            Say("Would you like to make a purchase? ");
-            bool inputBool = GetInputBool();
-            if (inputBool)
+
+
+        }
+
+        public void EndDialogue()
+        {
+            Say("See ya' later!");
+        }
+
+        public void UpdateInventoryDisplay()
+        {
+            WPFUtils.RefreshListBoxDataBinding(WPFUtils.ShopInventoryBox, Inventory);
+        }
+
+        public void PlayerBuy(Player player, Item i)
+        {
+            if (i.Price <= player.Money)
             {
-                Say("What would you like to purchase?");
-                GetInputInt(1, Inventory.Count);
+                //buy the item
+                double transferAmount = 1;
+                if (i.Quantity < 1) transferAmount = i.Quantity;
+
+                player.Money -= i.Price * transferAmount;
+
+                GameUtils.TransferItem(i, Inventory, player.Inventory);
+
+                Say($"All yours, pal! Enjoy the {i.Name}.");
+                Print($"[You have {player.Money.ToString("C")} remaining.]");
+                
+
+                UpdateInventoryDisplay();
+                player.UpdateInventoryDisplay();
+
+            }
+            else
+            {
+                // not enough money
+                Say("Er... your pockets are lookin' a bit too light there.");
+                Print("[Error: Insufficient funds]");
+            }
+        }
+
+        public void PlayerSell(Player player, Item i)
+        {
+            
+            //sell the item
+            
+
+            GameUtils.TransferItem(i, player.Inventory, Inventory);
+
+            double multiplier = 1;
+            double chance = GameUtils.random.NextDouble();
+            if (chance > 0.9)
+            {
+                //very rare item
+                multiplier = 2;
+            }
+            else if (chance > 0.7)
+            {
+                //rare item
+                multiplier = 1.5;
+                
+            }
+            else
+            {
+                //traders gotta make a profit somehow
+                multiplier = 0.9;
             }
 
+            double transferAmount = 1;
+            if (i.Quantity < 1) transferAmount = i.Quantity;
+
+            double buyPrice = i.Price * multiplier * transferAmount;
+            player.Money += buyPrice;
+
+            Say($"I'll take that {i.Name} for {buyPrice.ToString("C")}.");
+            Print($"[You have {player.Money.ToString("C")} remaining.]");
 
 
-            WaitForKeyPress(true);
+            UpdateInventoryDisplay();
+            player.UpdateInventoryDisplay();
+
+            
         }
+
     }
+
+
+
 }

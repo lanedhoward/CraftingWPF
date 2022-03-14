@@ -13,24 +13,14 @@ namespace CraftingSystemDemo
     class Game
     {
         public Player MyPlayer;
+        public bool ShopOpen = false;
+        public Trader MyTrader;
+
         public void Run()
         {
-            for (int i = 0; i < 100; i++)
-            {
-                Print();
-            }
-
-            Print("Hello World");
-
             
-            
-
             MyPlayer = new Player();
-
-
             MyPlayer.Name = "Player";
-
-            Print("Welcome " + MyPlayer.Name);
 
             Print(ConsoleUtils.LoadTextFromFile("../../../data/welcome.txt"));
             Print(ConsoleUtils.LoadTextFromFile("../../../data/instructions.txt"));
@@ -78,7 +68,9 @@ namespace CraftingSystemDemo
             MyPlayer.Craft(sleepingPotion);
             Print(ConsoleUtils.ShowAllItemsInList(MyPlayer.Inventory, false));
             */
-            //Trader MyTrader = new Trader();
+
+            MyTrader = new Trader();
+
             //MyTrader.StartDialogue(MyPlayer);
 
 
@@ -97,7 +89,7 @@ namespace CraftingSystemDemo
                 bool success = MyPlayer.Craft(recipe);
                 if (success)
                 {
-                    Print("Crafting success!");
+                    Print($"Crafting success! You made {recipe.result.Quantity} {recipe.result.Name}. ");
                 }
                 else
                 {
@@ -110,10 +102,67 @@ namespace CraftingSystemDemo
                 Print("[Error: Please select a recipe to craft.]");
             }
 
+        }
 
-
+        public void buttonShop_Click()
+        {
+            //
+            if (ShopOpen)
+            {
+                MyTrader.EndDialogue();
+            }
+            else
+            {
+                MyTrader.StartDialogue(MyPlayer);
+            }
+            ShopOpen = !ShopOpen;
 
         }
 
+        public void buttonBuy_Click()
+        {
+            Item selectedItem = (Item) WPFUtils.ShopInventoryBox.SelectedItem;
+
+            if (selectedItem == null)
+            {
+                MyTrader.Say("Er... what are you tryin' to buy?");
+                Print("[Error: You must select an item first]");
+            }
+            else
+            {
+                
+                MyTrader.PlayerBuy(MyPlayer, selectedItem);
+            }
+
+            
+        }
+
+        public void buttonSell_Click()
+        {
+            Item selectedItem = (Item)WPFUtils.InventoryBox.SelectedItem;
+
+            if (selectedItem == null)
+            {
+                MyTrader.Say("Er... what are you tryin' to sell?");
+                Print("[Error: You must select an item first]");
+            }
+            else
+            {
+
+                MyTrader.PlayerSell(MyPlayer, selectedItem);
+            }
+        }
+
+        public void lboxRecipes_SelectionChanged()
+        {
+            Recipe selectedRecipe = (Recipe) RecipesListBox.SelectedItem;
+
+            if (selectedRecipe != null)
+            {
+                //print all ingredients of the recipe
+                Print(selectedRecipe.StringOfRecipe());
+            }
+
+        }
     }
 }

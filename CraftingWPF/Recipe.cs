@@ -20,5 +20,27 @@ namespace CraftingSystemDemo
         {
             return result.Name;
         }
+
+        public string StringOfRecipe()
+        {
+            string s = "";
+
+            s += result.Quantity + " " + result.Name + ": ";
+
+            for (int i = 0; i < requirements.Count; i++)
+            {
+                s += requirements[i].Quantity + " " + requirements[i].Name;
+                if (i < requirements.Count-1)
+                {
+                    //not the last one, add a comma
+                    s += ", ";
+                }
+
+            }
+
+            return s;
+
+        }
+
     }
 }
