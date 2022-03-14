@@ -8,11 +8,14 @@
         Title="MainWindow" Height="450" Width="800"
         Loaded="OnLoad">
     <Grid Background="#FF544E68">
-        <Button x:Name="buttonCraft" Content="Craft!" HorizontalAlignment="Left" Margin="155,203,0,0" VerticalAlignment="Top" Height="43" Width="209" Foreground="#FFFFECD6" Background="#FF203C56" Click="buttonCraft_Click"/>
-        <TextBox x:Name="tboxInventory" HorizontalAlignment="Left" Margin="10,10,0,10" TextWrapping="Wrap" Width="140" Background="#FF8D697A" Foreground="#FFFFECD6" TextChanged="tblockInventory_TextChanged" Focusable="False" IsTabStop="False" IsReadOnly="True"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="79*"/>
+            <ColumnDefinition Width="721*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="buttonCraft" Content="Craft!" HorizontalAlignment="Left" Margin="115,203,0,0" VerticalAlignment="Top" Height="43" Width="209" Foreground="#FFFFECD6" Background="#FF203C56" Click="buttonCraft_Click" Grid.Column="1"/>
         <TextBox 
             x:Name="tboxOutput" 
-            Margin="369,10,10,0" 
+            Margin="330,10,10,0" 
             TextWrapping="Wrap" 
             VerticalAlignment="Top" 
             Height="236" 
@@ -24,13 +27,18 @@
             ScrollViewer.VerticalScrollBarVisibility="Auto"
             ScrollViewer.CanContentScroll="True" 
             BorderBrush="#FF203C56" 
-            IsReadOnly="True"
+            IsReadOnly="True" Grid.Column="1"
             />
-        <Grid Margin="155,10,435,242">
-            
+        <Grid Margin="115,10,396,242" Grid.Column="1">
+
             <ListBox x:Name="lboxRecipes" Margin="0,23,0,0" Background="#FFFFECD6" Foreground="#FF0D2B45" IsSynchronizedWithCurrentItem="True" HorizontalAlignment="Center" Width="208" Grid.RowSpan="2"/>
             <TextBlock HorizontalAlignment="Center" Text="Known Recipes" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="208" Background="#FFFFECD6" Foreground="#FF0D2B45" TextAlignment="Center"/>
         </Grid>
+        <ListBox x:Name="lboxInventory" Margin="10,10,616,10" Grid.ColumnSpan="2" Background="#FF8D697A" Foreground="#FFFFECD6"/>
+
+        <ListBox x:Name="lboxShopInventory" Margin="501,251,10,10" Grid.Column="1" Background="#FF8D697A" Foreground="#FFFFECD6" Visibility="Hidden"/>
+        <Button x:Name="buttonSell" Content="Sell" Grid.Column="1" HorizontalAlignment="Left" Margin="76,251,0,0" VerticalAlignment="Top" Height="173" Width="90" Background="#FF203C56" Foreground="#FFFFECD6" Visibility="Hidden"/>
+        <Button x:Name="buttonBuy" Content="Buy" Grid.Column="1" HorizontalAlignment="Left" Margin="406,251,0,0" VerticalAlignment="Top" Height="173" Width="90" Background="#FF203C56" Foreground="#FFFFECD6" Visibility="Hidden"/>
 
 
 

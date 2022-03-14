@@ -28,11 +28,23 @@ namespace CraftingSystemDemo
             Name = _Name;
         }
 
-        public Item(double _Quantity, string _Name, string _Description)
+        public Item(double _Quantity, string _Name, double _Price)
+        {
+            Quantity = _Quantity;
+            Name = _Name;
+            Price = _Price;
+        }
+
+        public Item(double _Quantity, string _Name, double _Price, string _Description)
         {
             Quantity = _Quantity;
             Name = _Name;
             Description = _Description;
+        }
+
+        public override string ToString()
+        {
+            return Name + "  [" + (Price*Quantity).ToString("C") + "]";
         }
 
     }

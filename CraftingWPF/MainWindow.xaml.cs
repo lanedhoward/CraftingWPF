@@ -33,8 +33,10 @@ namespace CraftingWPF
             InitializeComponent();
 
             WPFUtils.OutputBox = tboxOutput;
-            WPFUtils.InventoryDisplay = tboxInventory;
+            WPFUtils.InventoryBox = lboxInventory;
+            WPFUtils.ShopInventoryBox = lboxShopInventory;
             WPFUtils.RecipesListBox = lboxRecipes;
+
 
             myGame = new Game();
             

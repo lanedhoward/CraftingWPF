@@ -12,8 +12,9 @@ namespace CraftingWPF
     static class WPFUtils
     {
         public static TextBox OutputBox;
-        public static TextBox InventoryDisplay;
         public static ListBox RecipesListBox;
+        public static ListBox InventoryBox;
+        public static ListBox ShopInventoryBox;
 
         public static void Print(string message)
         {
@@ -35,10 +36,17 @@ namespace CraftingWPF
 
         public static void UpdateInventoryDisplay(List<Item> items)
         {
-            InventoryDisplay.Text = ConsoleUtils.ShowAllItemsInList(items,false);
+            //InventoryDisplay.Text = ConsoleUtils.ShowAllItemsInList(items,false);
+            RefreshListBoxDataBinding(InventoryBox, items);
+
         }
 
         public static void RefreshListBoxDataBinding(ListBox lb, List<Recipe> list)
+        {
+            lb.ItemsSource = null;
+            lb.ItemsSource = list;
+        }
+        public static void RefreshListBoxDataBinding(ListBox lb, List<Item> list)
         {
             lb.ItemsSource = null;
             lb.ItemsSource = list;

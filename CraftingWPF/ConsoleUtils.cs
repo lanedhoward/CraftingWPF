@@ -159,7 +159,7 @@ namespace CraftingSystemDemo
             foreach (string s in File.ReadAllLines(path))
             {
                 string[] subs = s.Split('~');
-                items.Add(new Item(double.Parse(subs[0]), subs[1]));
+                items.Add(new Item(double.Parse(subs[0]), subs[1], double.Parse(subs[2])));
             }
 
             return items;

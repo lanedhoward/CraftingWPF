@@ -49,7 +49,7 @@ namespace CraftingSystemDemo
                     new Item(1, "Chamomile")
 
                 },
-                new Item(1, "Chamomile Tea")
+                new Item(1, "Chamomile Tea", 10)
                 );
             
 
@@ -63,7 +63,7 @@ namespace CraftingSystemDemo
                     new Item(.5, "Lemon Balm")
 
                 },
-                new Item(1, "Sleeping Potion")
+                new Item(1, "Sleeping Potion", 35)
                 );
 
             MyPlayer.LearnRecipe(chamomileTea);

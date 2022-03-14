@@ -18,11 +18,7 @@ namespace CraftingSystemDemo
 
             Inventory = new List<Item>();
 
-            //starting player inventory
-            Inventory.Add(new Item(2, "Toadstool"));
-            Inventory.Add(new Item(10, "Feather", "From a bird, probably"));
-            Inventory.Add(new Item(3, "Seaweed"));
-
+            
             WPFUtils.RecipesListBox.ItemsSource = KnownRecipes;
             
         }
