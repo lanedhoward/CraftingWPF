@@ -85,6 +85,8 @@ namespace CraftingSystemDemo
             GameUtils.TransferItem(i, player.Inventory, Inventory);
 
             double multiplier = 1;
+
+            /* this logic has been moved to the crafting section
             double chance = GameUtils.random.NextDouble();
             if (chance > 0.9)
             {
@@ -102,6 +104,7 @@ namespace CraftingSystemDemo
                 //traders gotta make a profit somehow
                 multiplier = 0.9;
             }
+            */
 
             double transferAmount = 1;
             if (i.Quantity < 1) transferAmount = i.Quantity;
@@ -109,7 +112,7 @@ namespace CraftingSystemDemo
             double buyPrice = i.Price * multiplier * transferAmount;
             player.Money += buyPrice;
 
-            Say($"I'll take that {i.Name} for {buyPrice.ToString("C")}.");
+            Say($"I'll take that {Item.QualityName(i.Quality)} {i.Name} for {buyPrice.ToString("C")}.");
             Print($"[You have {player.Money.ToString("C")} remaining.]");
 
 

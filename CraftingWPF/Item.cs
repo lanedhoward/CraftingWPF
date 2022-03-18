@@ -5,8 +5,35 @@ using System.Text;
 
 namespace CraftingSystemDemo
 {
+    
     public class Item
     {
+        //basically setting up an enum but you cant do an enum with doubles
+        public const double Middling = 1.1;
+        public const double Standard = 1.11;
+        public const double Fine = 1.12;
+        public const double Rare = 1.5;
+        public const double Outstanding = 2.0;
+        
+        public static string QualityName(double q)
+        {
+            switch (q)
+            {
+                case Item.Middling:
+                    return "Middling";
+                case Item.Standard:
+                    return "Standard";
+                case Item.Fine:
+                    return "Fine";
+                case Item.Rare:
+                    return "Rare";
+                case Item.Outstanding:
+                    return "Outstanding";
+                default:
+                    return "Standard";
+            }
+        }
+
         public string Name = "";
 
         public string Description = "";
@@ -14,6 +41,12 @@ namespace CraftingSystemDemo
         public double Quantity = 0;
 
         public double Price = 0;
+
+        public double Quality = Item.Standard; //overwrite quality if u need to, but standard by default
+        
+        
+
+
 
         public Item(double _Quantity)
         {

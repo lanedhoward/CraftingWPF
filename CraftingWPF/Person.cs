@@ -23,10 +23,15 @@ namespace CraftingSystemDemo
         
 
         
-        public virtual bool Craft(Recipe recipe)
+        public virtual bool Craft(Recipe recipe, out double quality)
         {
             bool success = true;
             Item result;
+            double totalPrice = 0;
+
+
+            quality = Item.Standard;
+
             List<Item> startingInventory = Inventory; //saved in case we need to revert
 
             foreach (Item item in recipe.requirements)
@@ -44,10 +49,11 @@ namespace CraftingSystemDemo
 
                     if (i.Name == name && i.Quantity >= quantity)
                     {
+                        totalPrice += i.Price * quantity;
                         //if it works, reduce quantity / remove from inventory
                         if (i.Quantity == quantity)
                         {
-                            // removing from inventory caused exception, will fix later
+                            
                             Inventory.Remove(i);
                         }
                         else
@@ -81,7 +87,34 @@ namespace CraftingSystemDemo
             if (success)
             {
                 result = recipe.result;
-                Inventory.Add(result);
+
+                Dictionary<double, int> potentialProfitMarginsDict = new Dictionary<double, int>()
+                {
+                    {Item.Middling, 15 }, //70% chance to be 10-12% profit
+                    {Item.Standard, 40 },
+                    {Item.Fine, 15 },
+                    {Item.Rare, 20 }, //20% chance of above average
+                    {Item.Outstanding, 10 } //10% chance to be rare
+                };
+                double profitMargin = ChooseWeighted<double>(potentialProfitMarginsDict);
+                
+                result.Price = Math.Round(totalPrice * profitMargin, 2);
+                result.Quality = profitMargin;
+                quality = profitMargin;
+
+                var searchResults = GameUtils.SearchInventoryByName(result.Name, Inventory);
+
+                if (searchResults.Item1 && searchResults.Item2.Price == result.Price)
+                {
+                    //already had a stack, just add the new quantity
+                    searchResults.Item2.Quantity += result.Quantity;
+                    
+                }
+                else
+                {
+                    //no stack of the same name and price, make a new stack
+                    Inventory.Add(result);
+                }
             }
             else
             {

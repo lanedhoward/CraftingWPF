@@ -46,6 +46,7 @@ namespace CraftingSystemDemo
 
         public static (bool, Item) SearchInventoryByName(string name, List<Item> inventory)
         {
+            
             Item resultItem = new Item(1,"Garbage");
             bool success = false;
             foreach (Item i in inventory)

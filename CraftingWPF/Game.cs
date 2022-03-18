@@ -85,11 +85,13 @@ namespace CraftingSystemDemo
 
             if (recipe != null)
             {
+                
                 //craft it
-                bool success = MyPlayer.Craft(recipe);
+                double resultQuality;
+                bool success = MyPlayer.Craft(recipe, out resultQuality);
                 if (success)
                 {
-                    Print($"Crafting success! You made {recipe.result.Quantity} {recipe.result.Name}. ");
+                    Print($"Crafting success! You made {recipe.result.Quantity} {Item.QualityName(resultQuality)} {recipe.result.Name}. ");
                 }
                 else
                 {

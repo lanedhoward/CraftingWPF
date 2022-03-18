@@ -28,9 +28,10 @@ namespace CraftingSystemDemo
             WPFUtils.UpdateInventoryDisplay(Inventory);
         }
 
-        public override bool Craft(Recipe recipe)
+        public override bool Craft(Recipe recipe, out double quality)
         {
-            bool result = base.Craft(recipe);
+            
+            bool result = base.Craft(recipe, out quality);
             UpdateInventoryDisplay();
             return result;
         }
