@@ -45,7 +45,8 @@ namespace CraftingSystemDemo
 
         public void UpdateInventoryDisplay()
         {
-            Inventory = Inventory.OrderBy(item => item.Name).ToList();
+            //Inventory = Inventory.OrderBy(item => item.Name).ToList(); //linq implementation
+            Inventory.Sort(); // list sort implementation. to sort in place and also show interface inheritance. 
             WPFUtils.RefreshListBoxDataBinding(WPFUtils.ShopInventoryBox, Inventory);
         }
 

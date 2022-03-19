@@ -6,7 +6,7 @@ using System.Text;
 namespace CraftingSystemDemo
 {
     
-    public class Item
+    public class Item : IComparable
     {
         //basically setting up an enum but you cant do an enum with doubles
         public const double Middling = 1.1;
@@ -88,5 +88,23 @@ namespace CraftingSystemDemo
             return Quantity + " " + Name + "  [" + Price.ToString("C") + "]";
         }
 
+        public int CompareTo(object other)
+        {
+            //adapted from IComparable documentation https://docs.microsoft.com/en-us/dotnet/api/system.icomparable?view=net-6.0
+
+            if (other == null) return 1;
+
+            Item otherItem = other as Item;
+
+            if (otherItem != null)
+            {
+                return this.Name.CompareTo(otherItem.Name);
+            }
+            else
+            {
+                throw new ArgumentException("Object is not an Item");
+            }
+            
+        }
     }
 }

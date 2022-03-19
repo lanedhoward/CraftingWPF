@@ -16,7 +16,11 @@ namespace CraftingWPF
         public static ListBox InventoryBox;
         public static ListBox ShopInventoryBox;
 
-        public static void Print(string message)
+        public delegate void PrintDelegate(string message);
+
+        public static PrintDelegate Print = PrintWPF;
+
+        public static void PrintWPF(string message)
         {
             // some help from https://stackoverflow.com/questions/18260702/textbox-appendtext-not-autoscrolling
             OutputBox.AppendText(message + "\n");
@@ -24,7 +28,7 @@ namespace CraftingWPF
             OutputBox.ScrollToEnd();
             
         }
-        public static void Print()
+        public static void PrintEmpty()
         {
             Print("");
         }
