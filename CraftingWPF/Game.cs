@@ -31,7 +31,7 @@ namespace CraftingSystemDemo
             MyPlayer.UpdateInventoryDisplay();
 
 
-
+            /*
             Recipe chamomileTea = new Recipe(
                 new List<Item>()
                 {
@@ -39,7 +39,7 @@ namespace CraftingSystemDemo
                     new Item(1, "Chamomile")
 
                 },
-                new Item(1, "Chamomile Tea", 10)
+                new Item(1, "Chamomile Tea")
                 );
             
 
@@ -53,13 +53,18 @@ namespace CraftingSystemDemo
                     new Item(.5, "Lemon Balm")
 
                 },
-                new Item(1, "Sleeping Potion", 35)
+                new Item(1, "Sleeping Potion")
                 );
 
             MyPlayer.LearnRecipe(chamomileTea);
             MyPlayer.LearnRecipe(sleepingPotion);
+            */
 
-
+            List<Recipe> gameRecipes = DataLoader.LoadRecipesFromXML("../../../data/recipes.xml");
+            foreach (Recipe r in gameRecipes)
+            {
+                MyPlayer.LearnRecipe(r);
+            }
 
             /*
             MyPlayer.Craft(chamomileTea);

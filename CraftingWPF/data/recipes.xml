@@ -1,0 +1,18 @@
+<recipes>
+    <recipe itemName = "Chamomile Tea" quantity = "1">
+        <ingredient itemName = "Water" quantity = "1">
+        </ingredient>
+        <ingredient itemName = "Chamomile" quantity = "1">
+        </ingredient>
+    </recipe>
+	<recipe itemName = "Sleeping Potion" quantity = "1">
+        <ingredient itemName = "Chamomile Tea" quantity = "1">
+        </ingredient>
+        <ingredient itemName = "Ashwagandha" quantity = "0.5">
+        </ingredient>
+		<ingredient itemName = "Dried Lavender" quantity = "0.5">
+        </ingredient>
+		<ingredient itemName = "Lemon Balm" quantity = "0.5">
+        </ingredient>
+    </recipe>
+</recipes>
