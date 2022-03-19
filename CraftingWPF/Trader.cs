@@ -18,12 +18,6 @@ namespace CraftingSystemDemo
             Money = 100;
 
             //initialize inventory
-            RedDye redDye = new RedDye(5) { Price = 1 };
-            BlueDye blueDye = new BlueDye(5) { Price = 1 };
-
-
-            Inventory.Add(redDye);
-            Inventory.Add(blueDye);
 
             UpdateInventoryDisplay();
         }
@@ -43,10 +37,15 @@ namespace CraftingSystemDemo
             Say("See ya' later!");
         }
 
-        public void UpdateInventoryDisplay()
+        private void SortInventory()
         {
             //Inventory = Inventory.OrderBy(item => item.Name).ToList(); //linq implementation
             Inventory.Sort(); // list sort implementation. to sort in place and also show interface inheritance. 
+        }
+
+        public void UpdateInventoryDisplay()
+        {
+            SortInventory();
             WPFUtils.RefreshListBoxDataBinding(WPFUtils.ShopInventoryBox, Inventory);
         }
 
@@ -80,33 +79,11 @@ namespace CraftingSystemDemo
 
         public void PlayerSell(Player player, Item i)
         {
-            
             //sell the item
-            
-
             GameUtils.TransferItem(i, player.Inventory, Inventory);
 
             double multiplier = 1;
 
-            /* this logic has been moved to the crafting section
-            double chance = GameUtils.random.NextDouble();
-            if (chance > 0.9)
-            {
-                //very rare item
-                multiplier = 2;
-            }
-            else if (chance > 0.7)
-            {
-                //rare item
-                multiplier = 1.5;
-                
-            }
-            else
-            {
-                //traders gotta make a profit somehow
-                multiplier = 0.9;
-            }
-            */
 
             double transferAmount = 1;
             if (i.Quantity < 1) transferAmount = i.Quantity;

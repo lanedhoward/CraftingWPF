@@ -5,9 +5,22 @@ using System.Text;
 
 namespace CraftingSystemDemo
 {
-    
+    /* i would use an enum but i decided to do this with constants instead in order to use doubles.
+    public enum QualityEnum : int
+    {
+        Middling = 1,
+        Standard = 2,
+        Fine = 3,
+        Rare = 4,
+        Outstanding = 5
+    }
+    */
     public class Item : IComparable
     {
+
+        //QualityEnum q = QualityEnum.Middling;
+        
+
         //basically setting up an enum but you cant do an enum with doubles
         public const double Middling = 1.1;
         public const double Standard = 1.11;
@@ -46,6 +59,7 @@ namespace CraftingSystemDemo
         
         
 
+        
 
 
         public Item(double _Quantity)
