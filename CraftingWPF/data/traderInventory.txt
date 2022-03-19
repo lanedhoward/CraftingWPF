@@ -1,0 +1,20 @@
+16~Ashwagandha~5
+21~Dried Lavender~3
+34~Lemon Balm~4
+12~Chamomile~5
+100~Water~1
+19~Salt~0.5
+13~Licorice Root~2
+8~Honey~3.5
+18~Ginger~3
+14~Allspice~3
+18~Peach~5
+13~Vanilla~1.5
+11~Apple~4.5
+18~Jasmine~3
+13~Cinnamon~4
+10~Whiskey~15
+13~Garlic~4
+16~Carrot~3.5
+12~Mint~3
+14~Hibiscus~4

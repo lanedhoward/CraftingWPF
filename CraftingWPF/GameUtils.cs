@@ -67,7 +67,7 @@ namespace CraftingSystemDemo
             var searchResults = SearchInventoryByName(item.Name, destination);
             double transferAmount = 1;
 
-            if (searchResults.Item1) //if successfully found item in destination inventory
+            if (searchResults.Item1 && searchResults.Item2.Price == item.Price) //if successfully found item in destination inventory
             {
                 if (item.Quantity == 1)
                 {
@@ -93,13 +93,14 @@ namespace CraftingSystemDemo
                 {
                     // only one item, just move it
                     source.Remove(item);
-                    destination.Add(item);
+
+                    destination.Add(Item.ItemClone(item));
                 }
                 else if (item.Quantity < 1)
                 {
                     //less than 1 item, move it
                     source.Remove(item);
-                    destination.Add(item);
+                    destination.Add(Item.ItemClone(item));
                 }
                 else
                 {
@@ -110,7 +111,6 @@ namespace CraftingSystemDemo
                     item.Quantity -= 1;
                 }
             }
-            // but what if the player already has a stack of the item??
         }
 
     }

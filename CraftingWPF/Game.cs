@@ -27,7 +27,6 @@ namespace CraftingSystemDemo
             
 
             MyPlayer.Inventory = ConsoleUtils.LoadItemListFromFile("../../../data/startingInventory.txt");
-            //Print(ConsoleUtils.ShowAllItemsInList(MyPlayer.Inventory, false));
             MyPlayer.UpdateInventoryDisplay();
 
 
@@ -75,12 +74,14 @@ namespace CraftingSystemDemo
             */
 
             MyTrader = new Trader();
+            MyTrader.Inventory = ConsoleUtils.LoadItemListFromFile("../../../data/traderInventory.txt");
+            MyTrader.UpdateInventoryDisplay();
 
             //MyTrader.StartDialogue(MyPlayer);
 
 
 
-            
+
         }
 
         public void buttonCraft_Click()

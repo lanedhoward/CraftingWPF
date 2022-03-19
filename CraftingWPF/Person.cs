@@ -32,7 +32,6 @@ namespace CraftingSystemDemo
 
             quality = Item.Standard;
 
-            List<Item> startingInventory = Inventory; //saved in case we need to revert
 
             foreach (Item item in recipe.requirements)
             {
@@ -49,19 +48,7 @@ namespace CraftingSystemDemo
 
                     if (i.Name == name && i.Quantity >= quantity)
                     {
-                        totalPrice += i.Price * quantity;
-                        //if it works, reduce quantity / remove from inventory
-                        if (i.Quantity == quantity)
-                        {
-                            
-                            Inventory.Remove(i);
-                        }
-                        else
-                        {
-                            i.Quantity -= quantity;
-                        }
-
-
+                        //found item
                         minisuccess = true;
                         break;
                     }
@@ -86,7 +73,37 @@ namespace CraftingSystemDemo
 
             if (success)
             {
-                result = recipe.result;
+                //actually execute the craft
+                foreach (Item item in recipe.requirements)
+                {
+
+                    //get name of requirement
+                    string name = item.Name;
+                    double quantity = item.Quantity;
+                    
+                    foreach (Item i in Inventory)
+                    {
+                        if (i.Name == name && i.Quantity >= quantity)
+                        {
+                            totalPrice += i.Price * quantity;
+                            //if it works, reduce quantity / remove from inventory
+                            if (i.Quantity == quantity)
+                            {
+
+                                Inventory.Remove(i);
+                            }
+                            else
+                            {
+                                i.Quantity -= quantity;
+                            }
+                            break;
+                        }
+
+                    }
+                }
+
+
+                result = Item.ItemClone(recipe.result);
 
                 Dictionary<double, int> potentialProfitMarginsDict = new Dictionary<double, int>()
                 {
@@ -118,8 +135,7 @@ namespace CraftingSystemDemo
             }
             else
             {
-                //revert inventory, in case some of the items were used but not all
-                Inventory = startingInventory;
+                //crafting failed, no items were changed
             }
             
             return success;

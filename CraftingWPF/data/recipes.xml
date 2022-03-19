@@ -15,4 +15,56 @@
 		<ingredient itemName = "Lemon Balm" quantity = "0.5">
         </ingredient>
     </recipe>
+	<recipe itemName = "Healing Potion" quantity = "1">
+        <ingredient itemName = "Water" quantity = "1">
+        </ingredient>
+        <ingredient itemName = "Salt" quantity = "0.25">
+        </ingredient>
+		<ingredient itemName = "Lemon Balm" quantity = "1">
+        </ingredient>
+		<ingredient itemName = "Licorice Root" quantity = "0.5">
+        </ingredient>
+    </recipe>
+	<recipe itemName = "Potion of Great Fortune" quantity = "1">
+        <ingredient itemName = "Honey" quantity = "1">
+        </ingredient>
+        <ingredient itemName = "Ginger" quantity = "1">
+        </ingredient>
+		<ingredient itemName = "Allspice" quantity = "0.5">
+        </ingredient>
+		<ingredient itemName = "Peach" quantity = "0.5">
+        </ingredient>
+    </recipe>
+	<recipe itemName = "Potion of Great Heart" quantity = "1">
+        <ingredient itemName = "Healing Potion" quantity = "1">
+        </ingredient>
+        <ingredient itemName = "Vanilla" quantity = "0.5">
+        </ingredient>
+		<ingredient itemName = "Apple" quantity = "0.5">
+        </ingredient>
+		<ingredient itemName = "Jasmine" quantity = "0.5">
+        </ingredient>
+		<ingredient itemName = "Cinnamon" quantity = "0.25">
+        </ingredient>
+    </recipe>
+	<recipe itemName = "Potion of Marvelous Sight" quantity = "1">
+        <ingredient itemName = "Whiskey" quantity = "1">
+        </ingredient>
+        <ingredient itemName = "Garlic" quantity = "0.25">
+        </ingredient>
+		<ingredient itemName = "Carrot" quantity = "1">
+        </ingredient>
+		<ingredient itemName = "Mint" quantity = "0.5">
+        </ingredient>
+		<ingredient itemName = "Hibiscus" quantity = "1">
+        </ingredient>
+    </recipe>
+	<recipe itemName = "Heavenly Potion" quantity = "1">
+        <ingredient itemName = "Potion of Great Fortune" quantity = "1">
+        </ingredient>
+		<ingredient itemName = "Potion of Great Heart" quantity = "1">
+        </ingredient>
+		<ingredient itemName = "Potion of Marvelous Sight" quantity = "1">
+        </ingredient>
+    </recipe>
 </recipes>

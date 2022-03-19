@@ -45,6 +45,7 @@ namespace CraftingSystemDemo
 
         public void UpdateInventoryDisplay()
         {
+            Inventory = Inventory.OrderBy(item => item.Name).ToList();
             WPFUtils.RefreshListBoxDataBinding(WPFUtils.ShopInventoryBox, Inventory);
         }
 

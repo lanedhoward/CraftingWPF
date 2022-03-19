@@ -14,7 +14,7 @@ namespace CraftingSystemDemo
         public Player()
         {
             // initialize variables
-            Money = 15;
+            Money = 50;
 
             Inventory = new List<Item>();
 

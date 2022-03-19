@@ -85,7 +85,7 @@ namespace CraftingSystemDemo
 
         public override string ToString()
         {
-            return Quantity + " " + Name + "  [" + (Price*Quantity).ToString("C") + "]";
+            return Quantity + " " + Name + "  [" + Price.ToString("C") + "]";
         }
 
     }
