@@ -30,34 +30,6 @@ namespace CraftingSystemDemo
             MyPlayer.UpdateInventoryDisplay();
 
 
-            /*
-            Recipe chamomileTea = new Recipe(
-                new List<Item>()
-                {
-                    new Item(1, "Water"),
-                    new Item(1, "Chamomile")
-
-                },
-                new Item(1, "Chamomile Tea")
-                );
-            
-
-            
-            Recipe sleepingPotion = new Recipe(
-                new List<Item>()
-                {
-                    new Item(1, "Chamomile Tea"),
-                    new Item(.5, "Ashwagandha"),
-                    new Item(.5, "Dried Lavender"),
-                    new Item(.5, "Lemon Balm")
-
-                },
-                new Item(1, "Sleeping Potion")
-                );
-
-            MyPlayer.LearnRecipe(chamomileTea);
-            MyPlayer.LearnRecipe(sleepingPotion);
-            */
 
             List<Recipe> gameRecipes = DataLoader.LoadRecipesFromXML("../../../data/recipes.xml");
             foreach (Recipe r in gameRecipes)
@@ -65,19 +37,10 @@ namespace CraftingSystemDemo
                 MyPlayer.LearnRecipe(r);
             }
 
-            /*
-            MyPlayer.Craft(chamomileTea);
-            Print(ConsoleUtils.ShowAllItemsInList(MyPlayer.Inventory, false));
-
-            MyPlayer.Craft(sleepingPotion);
-            Print(ConsoleUtils.ShowAllItemsInList(MyPlayer.Inventory, false));
-            */
 
             MyTrader = new Trader();
             MyTrader.Inventory = ConsoleUtils.LoadItemListFromFile("../../../data/traderInventory.txt");
             MyTrader.UpdateInventoryDisplay();
-
-            //MyTrader.StartDialogue(MyPlayer);
 
 
 

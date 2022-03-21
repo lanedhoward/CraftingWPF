@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="CraftingSystemDemo.BlueDye">
+    <Position X="4.25" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BlueDye.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CraftingSystemDemo.CraftingStation">
+    <Position X="7.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftingStation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CraftingSystemDemo.Game">
+    <Position X="0.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAQAhAAAABAAAAAAAAAAAQAAgAAEAI=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CraftingSystemDemo.GameUtils">
+    <Position X="11" Y="6" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAIQAAAAACAA=</HashCode>
+      <FileName>GameUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CraftingSystemDemo.Item">
+    <Position X="4.25" Y="0.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>UAAAAEAAAQAgAAREIAAAAAQAAIAEAAAAAAAAgAAAAAQ=</HashCode>
+      <FileName>Item.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CraftingSystemDemo.Person">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAABAAAAAAAAAQAAAAAgAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CraftingSystemDemo.Player">
+    <Position X="9.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAgAAAAAAAAAAAAAAAAAgAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CraftingSystemDemo.Recipe">
+    <Position X="0.5" Y="5.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAEBAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Recipe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CraftingSystemDemo.RedDye">
+    <Position X="5.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RedDye.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CraftingSystemDemo.Trader">
+    <Position X="9.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAEgAAAAAAAAAAAAAAAAAAAAAAAAIABAAAAIAAA=</HashCode>
+      <FileName>Trader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CraftingWPF.DataLoader">
+    <Position X="11" Y="0.5" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>DataLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CraftingWPF.WPFUtils">
+    <Position X="11" Y="1.75" Width="4.5" />
+    <NestedTypes>
+      <Delegate Name="CraftingWPF.WPFUtils.PrintDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>WPFUtils.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAIgAAAQAAAAAgACAAAAQAAAAAQAAAAAhBBEAAA=</HashCode>
+      <FileName>WPFUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
